@@ -4,8 +4,10 @@ import InputComp from "./Input";
 import {useRouter} from "next/navigation";
 import {useState} from "react";
 import {authService} from "./apis/auth/authService";
+import {useAuth} from "../contextAPi/AuthContext/AuthContext";
 
 export default function Login() {
+    const {login} = useAuth();
     const router = useRouter();
     const [formData, setFormData] = useState({email: "", password: ""});
     const [error, setError] = useState("");
@@ -23,7 +25,7 @@ export default function Login() {
         setError("");
         setLoading(true);
         try {
-            await authService.login(formData);
+            await login(formData)
             router.replace("/userHome");
         } catch (err) {
             setError(err.message || "Login Failed, please try again");
@@ -65,9 +67,9 @@ export default function Login() {
                 >
                     {loading ? "Logging in..." : "Login"}
                 </button>
-                <button
-                    type="button"
-                    className="pr-6 pl-6 pt-2 pb-2 bg bg-zinc-950 text-zinc-800 rounded-3xl mt-6 ml-12 font-semibold hover:cursor-pointer"
+                <button onClick={() => router.push("/userHome")}
+                        type="button"
+                        className="pr-6 pl-6 pt-2 pb-2 bg bg-zinc-950 text-zinc-800 rounded-3xl mt-6 ml-12 font-semibold hover:cursor-pointer"
                 >
                     Forgot Password ?
                 </button>

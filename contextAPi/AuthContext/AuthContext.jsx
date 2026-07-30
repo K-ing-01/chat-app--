@@ -23,9 +23,9 @@ export function AuthProvider({children}) {
                 return;
             }
             try {
-                const data = await authService.refresh(storedRefreshToken);
-                setAccessToken(data.accessToken);
-                if (data.refreshToken) setRefreshToken(data.refreshToken);
+                const token = await authService.refresh(storedRefreshToken);
+                setAccessToken(token.accessToken);
+                if (token.refreshToken) setRefreshToken(token.refreshToken);
 
                 const userData = await authService.me();
                 setUser(userData);
