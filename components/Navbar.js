@@ -8,13 +8,13 @@ export default function Navbar() {
     const pathName = usePathname();
     const links = [
         {link: "/userHome", label: <HomeIcon/>},
-        {link: "/chats", label: <MessageCircleIcon/>},
-        {link: "/stories", label: <Network/>},
-        {link: "/trips", label: <Car/>},
+        {link: "/userHome/chats", label: <MessageCircleIcon/>},
+        {link: "/userHome/stories", label: <Network/>},
+        {link: "/userHome/trips", label: <Car/>},
     ];
 
     return (
-        <nav className="navbar absolute bottom-5 -translate-x-1/2 left-1/2">
+        <nav className="navbar fixed bottom-5 -translate-x-1/2 left-1/2 ">
             <div className="items flex space-x-2 text-zinc-500 bg-zinc-800 pb-2 pt-2 pr-3 pl-3 rounded-3xl">
                 {links.map((link) => {
                     const isActive = pathName === link.link;

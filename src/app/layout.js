@@ -29,7 +29,6 @@ export default function RootLayout({children}) {
         <body className="min-h-full flex flex-col">
         <AuthProvider>
             {children}
-            <Navbar/>
         </AuthProvider>
         </body>
         </html>
