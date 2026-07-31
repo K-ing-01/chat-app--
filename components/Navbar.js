@@ -15,7 +15,7 @@ export default function Navbar() {
 
     return (
         <nav className="navbar fixed bottom-5 -translate-x-1/2 left-1/2 ">
-            <div className="items flex space-x-2 text-zinc-500 bg-zinc-800 pb-2 pt-2 pr-3 pl-3 rounded-3xl">
+            <div className="items flex space-x-2 text-zinc-500 bg-white pb-2 pt-2 pr-3 pl-3 rounded-3xl">
                 {links.map((link) => {
                     const isActive = pathName === link.link;
 
